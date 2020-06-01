@@ -42,23 +42,14 @@ public class MailService {
      * @throws MailException
      */
 
-    public void sendEmail(Participant user) throws MailException {
-
-        /*
-         * This JavaMailSender Interface is used to send Mail in Spring Boot. This
-         * JavaMailSender extends the MailSender Interface which contains send()
-         * function. SimpleMailMessage Object is required because send() function uses
-         * object of SimpleMailMessage as a Parameter
-         */
+    public void sendEmail(Participant user, String message) throws MailException {
 
         SimpleMailMessage mail = new SimpleMailMessage();
-        mail.setTo(user.getEmail());
-        mail.setSubject("Testing Mail API");
-        mail.setText("Hurray ! You have done that dude...");
+        //mail.setTo(user.getEmail());
+        mail.setTo("simon.collin.auditeur@lecnam.net");
+        mail.setSubject("TopEvent information");
+        mail.setText(message);
 
-        /*
-         * This send() contains an Object of SimpleMailMessage as an Parameter
-         */
         javaMailSender.send(mail);
     }
 

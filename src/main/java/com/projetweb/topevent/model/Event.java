@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection = "events")
@@ -107,5 +108,12 @@ public class Event {
 
     public long getIdOrganisateur() {
         return idOrganisateur;
+    }
+
+    public void pushToParticipant(String participantid){
+        if (this.participants == null){
+            this.setParticipants(new ArrayList<>());
+        }
+        this.participants.add(participantid);
     }
 }

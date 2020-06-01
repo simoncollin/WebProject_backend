@@ -38,7 +38,7 @@ public class ParticipantController {
     @PostMapping(value = "/")
     public ResponseEntity<?> saveOrUpdateParticipant(@RequestBody Participant participant) {
         participantService.saveOrUpdateParticipant(participant);
-        return new ResponseEntity("Participant added successfully", HttpStatus.OK);
+        return new ResponseEntity(participant, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{idOrganisateur}")
