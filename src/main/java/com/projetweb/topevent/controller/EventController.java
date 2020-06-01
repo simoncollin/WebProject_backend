@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -52,8 +53,13 @@ public class EventController {
         return new ResponseEntity("Event added successfully", HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/delete/{idOrganisateur}")
-    public void deleteEvent(@PathVariable String idOrganisateur) {
+    @DeleteMapping(value = "/byIdOrganisateur/{idOrganisateur}")
+    public void deleteEventByIdOrganisateur(@PathVariable String idOrganisateur) {
         eventService.deleteEvent(eventService.findByIdOrganisateur(idOrganisateur).getId());
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public void deleteEvent(@PathVariable String id) {
+        eventService.deleteEvent(id);
     }
 }

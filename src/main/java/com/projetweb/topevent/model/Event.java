@@ -3,6 +3,7 @@ package com.projetweb.topevent.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.Instant;
 import java.util.List;
 
 @Document(collection = "events")
@@ -11,7 +12,7 @@ public class Event {
     private @Id String id;
     private String name;
     private long idOrganisateur;
-    private String date;
+    private Instant date;
     private String lieux;
     private double prix;
     private String description;
@@ -20,7 +21,7 @@ public class Event {
 
     public Event() {}
 
-    public Event(String id, String name, long idOrganisateur, String date, String lieux, double prix, String description, String imageURL, List<String> participants) {
+    public Event(String id, String name, long idOrganisateur, Instant date, String lieux, double prix, String description, String imageURL, List<String> participants) {
         this.id = id;
         this.name = name;
         this.idOrganisateur = idOrganisateur;
@@ -52,11 +53,11 @@ public class Event {
         this.name = name;
     }
 
-    public String getDate() {
+    public Instant getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Instant date) {
         this.date = date;
     }
 

@@ -1,6 +1,7 @@
 package com.projetweb.topevent.controller;
 
 import com.projetweb.topevent.model.Participant;
+import com.projetweb.topevent.service.EventService;
 import com.projetweb.topevent.service.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,8 @@ public class ParticipantController {
 
     @Autowired
     private ParticipantService participantService;
+    @Autowired
+    private EventService eventService;
 
     @GetMapping(value = "/")
     public List<Participant> getAllParticipants() {

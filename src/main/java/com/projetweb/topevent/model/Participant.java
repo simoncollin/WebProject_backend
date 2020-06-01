@@ -3,24 +3,24 @@ package com.projetweb.topevent.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.validation.constraints.Email;
+import java.time.Instant;
 
 @Document(collection = "participant")
 public class Participant {
     private @Id String id;
     private String nom;
     private String prenom;
-    private int age;
+    private Instant bday;
     private String email;
 
     public Participant() {
     }
 
-    public Participant(String id, String nom, String prenom, int age, String email) {
+    public Participant(String id, String nom, String prenom, Instant bday, String email) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
-        this.age = age;
+        this.bday = bday;
         this.email = email;
     }
 
@@ -48,12 +48,12 @@ public class Participant {
         this.prenom = prenom;
     }
 
-    public int getAge() {
-        return age;
+    public Instant getBday() {
+        return bday;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setBday(Instant bday) {
+        this.bday = bday;
     }
 
     public String getEmail() {
