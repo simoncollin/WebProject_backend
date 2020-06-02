@@ -45,8 +45,7 @@ public class MailService {
     public void sendEmail(Participant user, String message) throws MailException {
 
         SimpleMailMessage mail = new SimpleMailMessage();
-        //mail.setTo(user.getEmail());
-        mail.setTo("simon.collin.auditeur@lecnam.net");
+        mail.setTo(user.getEmail());
         mail.setSubject("TopEvent information");
         mail.setText(message);
 
